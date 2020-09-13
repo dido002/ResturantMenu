@@ -8,17 +8,32 @@ public class Menu {
     private ArrayList<MenuItem> listOfDishes;
     private Date lastUpdated;
 
-    public Menu(){
+    public Menu() {
         this.listOfDishes = new ArrayList<>();
         this.lastUpdated = new Date();
     }
+     public void add(MenuItem m){
+         if(!listOfDishes.contains(m)){
+             listOfDishes.add(m);
+             this.lastUpdated = new Date();
+         }
 
-    public void setListOfDishes(ArrayList<MenuItem> listOfDishes) {
-        this.listOfDishes = listOfDishes;
+}
+    public void remove (MenuItem m){
+        listOfDishes.remove(m);
+        this.lastUpdated = new Date();
+
+    }
+    public Date getLastUpdated(){
+        return lastUpdated;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "listOfDishes=" + listOfDishes +
+                ", lastUpdated=" + lastUpdated +
+                '}';
     }
 }
 
